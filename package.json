@@ -1,0 +1,26 @@
+{
+  "name": "hapi_tutorials",
+  "version": "1.0.0",
+  "description": "",
+  "main": "getStart.js",
+  "scripts": {
+    "getStart": "nodemon ./getStart/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hcxowe/hapi_tutorials.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hcxowe/hapi_tutorials/issues"
+  },
+  "homepage": "https://github.com/hcxowe/hapi_tutorials#readme",
+  "dependencies": {
+    "hapi": "^17.8.5",
+    "hapi-pino": "^6.3.0",
+    "inert": "^5.1.3",
+    "nodemon": "^1.19.4"
+  }
+}
