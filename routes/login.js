@@ -16,7 +16,7 @@ module.exports = [
             // 生成 JWT
             const payload = {
                 username: username,
-                exp: Math.floor(new Date().getTime() / 1000) + 7 * 24 * 60 * 60,
+                exp: Math.floor(new Date().getTime() / 1000) + 60,
             }
 
             let jwtstr = JWT.sign(payload, config.JWT_SECRET)
@@ -42,6 +42,8 @@ module.exports = [
         method: 'GET',
         path: '/logout',
         handler: async (request, h) => {
+            // 请求时需要设置 header 的 Authorization 字段为登录返回的 JWT 字符串
+
             return request.auth.credentials
         },
         options: {

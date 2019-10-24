@@ -1,7 +1,6 @@
 const Hapi = require('hapi')
 const inert = require('inert')
 const vision = require('vision')
-const Path = require('path')
 const hapiAuthJWT2 = require('hapi-auth-jwt2')
 
 const route_login = require('./routes/login')
