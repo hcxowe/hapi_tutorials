@@ -18,8 +18,6 @@
   },
   "homepage": "https://github.com/hcxowe/hapi_tutorials#readme",
   "dependencies": {
-    "@hapi/inert": "^5.2.2",
-    "@hapi/vision": "^5.5.4",
     "dotenv": "^8.2.0",
     "hapi": "^17.8.5",
     "hapi-auth-jwt2": "^8.8.0",

@@ -1,21 +1,20 @@
 const Hapi = require('hapi')
-const dotenv = require('dotenv')
-const route_hello = require('./routes/hello')
-const route_users = require('./routes/users')
-const hapiAuthJWT2 = require('hapi-auth-jwt2')
-
 const inert = require('inert')
 const vision = require('vision')
+const hapiAuthJWT2 = require('hapi-auth-jwt2')
+
+const route_login = require('./routes/login')
+
 const plugin_swagger = require('./plugins/hapi-swagger')
 const plugin_jwt2 = require('./plugins/hapi-auth-jwt2')
 
-dotenv.config('.env')
+const config = require('./config')
  
 const init = async () => {
 
     const server = Hapi.server({
-        port: process.env.PORT,
-        host: process.env.HOST
+        port: config.PORT,
+        host: config.HOST
     })
 
     await server.register([
@@ -28,8 +27,7 @@ const init = async () => {
     plugin_jwt2(server)
  
     server.route([
-        ...route_hello,
-        ...route_users
+        ...route_login
     ])
  
     await server.start()
