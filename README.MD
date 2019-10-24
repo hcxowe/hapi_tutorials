@@ -8,3 +8,5 @@
 
 ### hapi-swagger
 
+### joi
+
