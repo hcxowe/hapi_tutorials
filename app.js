@@ -1,6 +1,7 @@
 const Hapi = require('hapi')
 const inert = require('inert')
 const vision = require('vision')
+const Path = require('path')
 const hapiAuthJWT2 = require('hapi-auth-jwt2')
 
 const route_login = require('./routes/login')
@@ -25,6 +26,20 @@ const init = async () => {
     ])
 
     plugin_jwt2(server)
+
+    // 静态目录
+    server.route({
+        method: 'GET',
+        path: '/hapi/{param*}',
+        handler: {
+            directory: {
+                path: 'public'
+            }
+        },
+        options: {
+            auth: false
+        }
+    })
  
     server.route([
         ...route_login
