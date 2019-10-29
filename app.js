@@ -4,11 +4,24 @@ const vision = require('vision')
 const hapiAuthJWT2 = require('hapi-auth-jwt2')
 
 const route_login = require('./routes/login')
+const route_cats = require('./routes/user')
 
 const plugin_swagger = require('./plugins/hapi-swagger')
 const plugin_jwt2 = require('./plugins/hapi-auth-jwt2')
 
 const config = require('./config')
+
+const mongoose = require('mongoose')
+mongoose.connect('mongodb://localhost/test')
+
+var db = mongoose.connection
+db.on('error', function() {
+    console.error.bind(console, 'connection error:')
+})
+
+db.once('open', function() {
+    console.log('mongoose connect!')
+})
  
 const init = async () => {
 
@@ -41,6 +54,7 @@ const init = async () => {
     })
  
     server.route([
+        ...route_cats,
         ...route_login
     ])
  
